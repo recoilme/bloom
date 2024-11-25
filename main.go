@@ -44,4 +44,16 @@ func main() {
 	bin, _ := filter3.MarshalBinary()
 	fw.Write(bin)
 	fw.Close()
+
+	filter4 := bloom.NewWithEstimates(10_000_000, 0.0001)
+	fw, _ = os.Create("filter4")
+	bin, _ = filter4.MarshalBinary()
+	fw.Write(bin)
+	fw.Close()
+
+	filter5 := bloom.NewWithEstimates(1_000_000, 0.0001)
+	fw, _ = os.Create("filter5")
+	bin, _ = filter5.MarshalBinary()
+	fw.Write(bin)
+	fw.Close()
 }
